@@ -15,3 +15,19 @@ Copy Generated library to current directory:
 Run the test.js file:
 
     node test.js
+
+Using:
+
+```javascript
+// Test GET request
+var req = new curl.request({
+    host: 'nodejs.org', 
+    path: '/'
+});
+
+// console.log(req);
+
+var res = req.end();
+console.log(res);
+console.log(res.body.toString());
+```
