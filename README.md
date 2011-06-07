@@ -25,8 +25,6 @@ var req = new curl.request({
     path: '/'
 });
 
-// console.log(req);
-
 var res = req.end();
 console.log(res);
 console.log(res.body.toString());
