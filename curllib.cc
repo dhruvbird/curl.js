@@ -167,9 +167,15 @@ public:
 
     CURL *curl;
     CURLcode res;
- 
+
+    // char error_buffer[CURL_ERROR_SIZE];
+    // error_buffer[0] = '\0';
+
     curl = curl_easy_init();
     if(curl) {
+      // curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
+      // curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, error_buffer);
+
       curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, &_method[0]);
       curl_easy_setopt(curl, CURLOPT_READFUNCTION, read_data);
       curl_easy_setopt(curl, CURLOPT_READDATA, (void*)&_body);
@@ -196,6 +202,8 @@ public:
       /* always cleanup */ 
       curl_easy_cleanup(curl);
     }
+
+    // std::cerr<<"error_buffer: "<<error_buffer<<std::endl;
 
     // Local<String> result = String::New("Hello World");
     Local<Object> result = Object::New();

@@ -83,7 +83,7 @@ CurlRequest.prototype = {
 
 exports.request = function(options) {
     options.protocol = options.protocol || 'http';
-    options.port = options.port || 80;
+    options.port = options.port || (options.protocol === 'https' ? 443 : 80);
     options.method = options.method || 'GET';
     options.path = options.path || '/';
     options.headers = options.headers || { };

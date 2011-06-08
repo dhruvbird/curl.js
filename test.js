@@ -18,7 +18,7 @@ console.log(res.body.toString());
 
 // Test POST request
 req = new curl.request({
-    protocol: 'http', 
+    protocol: 'https', 
     method: 'POST', 
     host: 'talk.to', 
     path: '/bosh/http-bind/', 
